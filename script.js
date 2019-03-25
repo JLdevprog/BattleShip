@@ -8,6 +8,7 @@ var model = {
 		{ location:[0,0,0], hits['','','',]},
 		{ location:[0,0,0], hits['','','',]},
 		{ location:[0,0,0], hits['','','',]}
-	]
+	],
+	fire: function(guess){}
 }
 
