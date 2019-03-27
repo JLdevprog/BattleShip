@@ -1,4 +1,52 @@
 
+var numberCell = prompt("Enter the number of Cell (Raw/Col) required:")-1;
+var numb = 0;
+
+var rows = numberCell;
+var cols = numberCell;
+
+//Pawns
+var A = "A";
+var B = "B";
+var C = "C";
+var D = "D";
+var E = "E";
+
+var pawnLength = 5;
+
+document.write("<table>");
+
+for (i=0;i<=numberCell; i++)
+{
+	document.write("<tr>");
+
+	for (j=0;j<=numberCell; j++){
+		document.write("<td id="+numb+">");
+			document.write(numb);
+		document.write("</td>");
+		numb++;
+	}
+
+	document.write("</tr>");
+}
+document.write("</table>");
+
+if (numberCell >9 ) {
+	ventier = 9;
+	alert("Number Cell max Limit 10"); 
+	location.reload();
+}
+else if(numberCell<4){
+	ventier = 4;
+	alert("Number Cell min Limit 5"); 
+	location.reload();
+}
+
+
+
+
+
+
 var view = {
 	displayMessage: function(msg) {
 		var messageArea = document.getElementById("messageArea");
@@ -17,15 +65,21 @@ var view = {
 };
 
 
+
+
 var model = {
 	boardSize: 10,
-	numShips: 5,
+	numShips: 3,
 	shipLength: 3,
 	shipsSunk: 0,
 
+/*	ships: [
+		{ locations: ["06", "16", "26"], hits: ["", "", ""]},
+		{ locations: ["24", "34", "44"], hits: ["", "", ""]},
+		{ locations: ["10", "11", "12"], hits: ["", "", ""]}
+	],
+*/
   	ships: [
-		{ locations: ["", "", ""], hits: ["", "", ""]},
-		{ locations: ["", "", ""], hits: ["", "", ""]},
 		{ locations: ["", "", ""], hits: ["", "", ""]},
 		{ locations: ["", "", ""], hits: ["", "", ""]},
 		{ locations: ["", "", ""], hits: ["", "", ""]}
@@ -47,7 +101,7 @@ var model = {
 				view.displayMessage("HIT!");
 
 				if (this.isSunk(ship)) {
-					view.displayMessage("You sank the battleship!");
+					view.displayMessage("You sank my battleship!");
 					this.shipsSunk++;
 				}
 				return true;

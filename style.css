@@ -1,7 +1,20 @@
+@font-face{
+	font-family: JLfontS;
+	src: url(JL-font.otf);
+}
 
 body{
 	background-color: black;
 	color: white;
+	font-family: "JLfontS";
+	font-size: 1em;
+}
+
+header{
+	font-size: 2em;
+}
+footer{
+	font-size: 1.5em;
 }
 
 div#board{
@@ -22,30 +35,34 @@ table{
 	border-spacing: 0px;
 	position: absolute;
 	left: 100px;
-	top: 100px;
+	top: 120px;
 	border-style: solid;
 	border-color: white;
  	border-width: 5px;
 }
 td{
-	width: 100px;
-	height: 100px;
+	width: 75px;
+	height: 75px;
 	border-style: solid;
 	border-color: white;
  	border-width: 2px;
  	color: white;
  	text-align: center;
-}
+ 	font-size: 1.8em;
+}/*
+td:hover{
+	background-color: grey;
+}*/
 
 form{
 	position: absolute;
 	top: 10px;
 	left: 100px;
 	padding: 15px;
-	background-color: grey;
+	background-color: dimgrey;
 }
 form input{
-	background-color: lightgrey;
+	background-color: white;
 	border-color: lightgrey;
 	font-size: 1em;
 }
