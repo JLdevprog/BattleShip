@@ -1,0 +1,80 @@
+@font-face{
+	font-family: JLfontS;
+	src: url(JL-font.otf);
+}
+
+body{
+	background-color: black;
+	color: white;
+	font-family: "JLfontS";
+	font-size: 1em;
+}
+
+header{
+	font-size: 2em;
+}
+footer{
+	font-size: 1.5em;
+}
+
+div#board{
+	position: relative;
+	width: 1024px;
+	height: 925px;
+	margin: auto;
+}
+
+h1#messageArea{
+	position: absolute;
+	top: 30px;
+	left: 450px;
+	color: purple;
+}
+
+table{
+	border-spacing: 0px;
+	position: absolute;
+	left: 100px;
+	top: 120px;
+	border-style: solid;
+	border-color: white;
+ 	border-width: 5px;
+}
+td{
+	width: 75px;
+	height: 75px;
+	border-style: solid;
+	border-color: white;
+ 	border-width: 2px;
+ 	color: white;
+ 	text-align: center;
+ 	font-size: 1.8em;
+}/*
+td:hover{
+	background-color: grey;
+}*/
+
+form{
+	position: absolute;
+	top: 10px;
+	left: 100px;
+	padding: 15px;
+	background-color: dimgrey;
+}
+form input{
+	background-color: white;
+	border-color: lightgrey;
+	font-size: 1em;
+}
+
+.form-control {
+	width: 70% !important;
+	margin-right: 5%;
+}
+
+.hit{
+	background-color: red;
+}
+.miss{
+	background-color: white;
+}
