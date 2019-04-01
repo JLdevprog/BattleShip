@@ -1,18 +1,10 @@
 
-var numberCell = prompt("Enter the number of Cell (Raw/Col) required:")-1;
+var numberCell = prompt("Enter the number of Cell (Raw/Col) required:");
 var numb = 0;
 
-var rows = numberCell;
-var cols = numberCell;
-
-//Pawns
-var A = "A";
-var B = "B";
-var C = "C";
-var D = "D";
-var E = "E";
-
 var pawnLength = 5;
+
+
 
 document.write("<table>");
 
@@ -31,198 +23,85 @@ for (i=0;i<=numberCell; i++)
 }
 document.write("</table>");
 
-if (numberCell >9 ) {
-	ventier = 9;
-	alert("Number Cell max Limit 10"); 
+if (numberCell >15 ) {
+	ventier = 15;
+	alert("Number Cell max Limit 15"); 
 	location.reload();
 }
-else if(numberCell<4){
-	ventier = 4;
-	alert("Number Cell min Limit 5"); 
+else if(numberCell<8){
+	ventier = 8;
+	alert("Number Cell min Limit 8"); 
 	location.reload();
+}
+else{
+
 }
 
 
 
 
+//Ships State
+/*
+var carrier = ["","","","",""];
+var cruiser = ["","","",""];
+var destroyer = ["","",""];
+var submarine = ["","",""];
+var torpedo = ["",""];
 
-
-var view = {
-	displayMessage: function(msg) {
-		var messageArea = document.getElementById("messageArea");
-		messageArea.innerHTML = msg;
-	},
-
-	displayHit: function(location) {
-		var cell = document.getElementById(location);
-		cell.setAttribute("class", "hit");
-	},
-
-	displayMiss: function(location) {
-		var cell = document.getElementById(location);
-		cell.setAttribute("class", "miss");
-	}
-};
-
-
-
+document.write(carrier);
+*/
 
 var model = {
-	boardSize: 10,
-	numShips: 3,
-	shipLength: 3,
-	shipsSunk: 0,
-
-/*	ships: [
-		{ locations: ["06", "16", "26"], hits: ["", "", ""]},
-		{ locations: ["24", "34", "44"], hits: ["", "", ""]},
-		{ locations: ["10", "11", "12"], hits: ["", "", ""]}
-	],
-*/
   	ships: [
-		{ locations: ["", "", ""], hits: ["", "", ""]},
-		{ locations: ["", "", ""], hits: ["", "", ""]},
-		{ locations: ["", "", ""], hits: ["", "", ""]}
-	],
-
-
-	fire: function(guess) {
-		for (var i = 0; i < this.numShips; i++) {
-			var ship = this.ships[i];
-			var index = ship.locations.indexOf(guess);
-
-			if (ship.hits[index] === "hit") {
-				view.displayMessage(
-					"You already hit that location!");
-				return true;
-			} else if (index >= 0) {
-				ship.hits[index] = "hit";
-				view.displayHit(guess);
-				view.displayMessage("HIT!");
-
-				if (this.isSunk(ship)) {
-					view.displayMessage("You sank my battleship!");
-					this.shipsSunk++;
-				}
-				return true;
-			}
-		}
-		view.displayMiss(guess);
-		view.displayMessage("Miss!");
-		return false;
-	},
-
-	isSunk: function(ship) {
-		for (var i = 0; i < this.shipLength; i++)  {
-			if (ship.hits[i] !== "hit") {
-				return false;
-			}
-		}
-	    return true;
-	},
-
-	generateShipLocations: function() {
-		var locations;
-		for (var i = 0; i < this.numShips; i++) {
-			do {
-				locations = this.generateShip();
-			} while (this.collision(locations));
-			this.ships[i].locations = locations;
-		}
-		console.log("Ships array: ");
-		console.log(this.ships);
-	},
-
-	generateShip: function() {
-		var direction = createRandom(2);
-		var row, col;
-
-		if (direction === 1) { // horizontal
-			row = createRandom(this.boardSize);
-			col = createRandom(this.boardSize - this.shipLength + 1);
-		} else { // vertical
-			row = createRandom(this.boardSize - this.shipLength + 1);
-			col = createRandom(this.boardSize);
-		}
-
-		var newShipLocations = [];
-		for (var i = 0; i < this.shipLength; i++) {
-			if (direction === 1) {
-				newShipLocations.push(row + "" + (col + i));
-			} else {
-				newShipLocations.push((row + i) + "" + col);
-			}
-		}
-		return newShipLocations;
-	},
-
-	collision: function(locations) {
-		for (var i = 0; i < this.numShips; i++) {
-			var ship = this.ships[i];
-			for (var j = 0; j < locations.length; j++) {
-				if (ship.locations.indexOf(locations[j]) >= 0) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
-};
-
-
-function createRandom(num) {
-  var rand = Math.floor(Math.random() * num);
-  return rand;
+		{ carrier: 		["A","A","A","A","A"]},
+		{ cruiser: 		["B","B","B","B"]},
+		{ destroyer: 	["C", "C", "C"]},
+		{ submarine: 	["D", "D", "D"]},
+		{ torpedo:		["E","E"]}
+	]
 }
 
-var controller = {
-	guesses: 0,
+console.log(model);
 
-	processGuess: function(guess) {
-		var location = parseGuess(guess);
-		if (location) {
-			this.guesses++;
-			var hit = model.fire(location);
-			if (hit && model.shipsSunk === model.numShips) {
-					view.displayMessage(
-						"You sank all the Battleships, in " 
-						+ this.guesses + " guesses.");
-			}
-		}
+console.log(model.ships[0]);
+
+//Ships.length;
+
+
+//Generate Ships Locations
+var numbRand1 = Math.floor(Math.random() * numb);
+var numbRand2 = Math.floor(Math.random() * numb);
+var numbRand3 = Math.floor(Math.random() * numb);
+var numbRand4 = Math.floor(Math.random() * numb);
+var numbRand5 = Math.floor(Math.random() * numb);
+
+function generateShip(){
+	if(numberCell){
+		console.log("Ships Generate Details");
+		model.ships[0]["carrier"] = 
+		[numbRand1 ,numbRand1+1, numbRand1+2, numbRand1+3, numbRand1+4];
+		model.ships[1]["cruiser"] = 
+		[numbRand2 ,numbRand2+1, numbRand2+2, numbRand2+3];
+		model.ships[2]["destroyer"] = 
+		[numbRand3 ,numbRand3+1, numbRand3+2];
+		model.ships[3]["submarine"] = 
+		[numbRand4 ,numbRand4+1, numbRand4+2];
+		model.ships[4]["torpedo"] = 
+		[numbRand5 ,numbRand5+1];
 	}
-};
-
-function parseGuess(guess) {
-	var alphabet = 
-	["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
-
-	if (guess === null || guess.length !== 2) {
-		alert("Enter a Letter and a Number on the board.");
-	} 
-	else {
-		var firstChar = guess.charAt(0);
-		var row = alphabet.indexOf(firstChar);
-		var column = guess.charAt(1);
-
-		if (isNaN(row) || isNaN(column)) {
-			alert("That isn't on the board.");
-		} else if (row < 0 || row >= model.boardSize ||
-		           column < 0 || column >= model.boardSize) {
-			alert("That's off the board!");
-		} else {
-			return row + column;
-		}
+	else{
 	}
-	return null;
 }
 
+generateShip();
+
+console.log(model.ships[0]);
+console.log(model);
+
+/*
 // event handlers
 function handleFireButton () {
 	var guessInput = document.getElementById("guessInput");
-	var guess = guessInput.value.toUpperCase();
-
-	controller.processGuess(guess);
-
 	guessInput.value = "";
 };
 
@@ -241,7 +120,7 @@ function init() {
 	var guessInput = document.getElementById("guessInput");
 	guessInput.onkeypress = handleKeyPress;
 
-  model.generateShipLocations();
 }
 
 window.onload = init;
+*/

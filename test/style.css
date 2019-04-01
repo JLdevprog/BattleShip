@@ -27,7 +27,7 @@ div#board{
 h1#messageArea{
 	position: absolute;
 	top: 30px;
-	left: 450px;
+	left: 850px;
 	color: purple;
 }
 
@@ -57,7 +57,7 @@ td:hover{
 form{
 	position: absolute;
 	top: 10px;
-	left: 100px;
+	left: 500px;
 	padding: 15px;
 	background-color: dimgrey;
 }
