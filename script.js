@@ -85,9 +85,9 @@ var model = {
 
 		if (direction === 1) { // horizontal
 			row = createRandom(this.boardSize);
-			col = createRandom(this.boardSize - this.shipLength + 1);
+			col = createRandom(this.boardSize - this.shipLength + 2);
 		} else { // vertical
-			row = createRandom(this.boardSize - this.shipLength + 1);
+			row = createRandom(this.boardSize - this.shipLength + 2);
 			col = createRandom(this.boardSize);
 		}
 
@@ -140,7 +140,7 @@ var controller = {
 
 function parseGuess(guess) {
 	var alphabet = 
-	["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
+	["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L" ];
 
 	if (guess === null || guess.length !== 2) {
 		alert("Enter a Letter and a Number on the board.");
