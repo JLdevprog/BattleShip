@@ -63,14 +63,12 @@ var model = {
 
 //Generate Ships Locations
 
-var random = Math.random();//Random 0->1
-
 function generateShip(n,ship){
 
 	var numbRandL = Math.floor(Math.random() * numberCell);
 	var numbRand = Math.floor(Math.random() * numberCell);
 
-	model.ships[n][ship] = 
+	model.ships[n][ship]["pos"] = 
 		[numbRandL, "/", numbRand];
 		
 }
@@ -81,9 +79,45 @@ generateShip(2,"destroyer");
 generateShip(3,"submarine");
 generateShip(4,"torpedo");
 
+
+//generate Ships Directions
+
+
+function generateShipDirection(n,ship){
+
+	var random = Math.random();//Random 0->1
+	//console.log(random);
+
+	if(random<0.5){
+		//row
+		model.ships[n][ship]["pos"][3] = "row";
+		for (i = 0; i < model.ships[n][ship].length; i++) {
+			console.log(length);
+		}
+	}
+	else if(random>0.5){
+		//col
+		model.ships[n][ship]["pos"][3] = "col";
+		for (i = 0; i < model.ships[n][ship].length; i++) {
+			console.log(length);
+		}
+	}
+}
+
+generateShipDirection(0,"carrier");
+generateShipDirection(1,"cruiser");
+generateShipDirection(2,"destroyer");
+generateShipDirection(3,"submarine");
+generateShipDirection(4,"torpedo");
+
+
+
 console.log("Ships Generate Details");
 
 console.log(model);
+
+
+
 
 
 
