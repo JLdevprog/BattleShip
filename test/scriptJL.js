@@ -1,6 +1,8 @@
 
-var numberCell = prompt("Enter the number of Cell (Raw/Col) required:");
+var numberCell = prompt("Enter the number of Cell (Raw/Col) required:")-1;
 var numb = 0;
+var numbTr = 0;
+var numbTd = 0;
 
 var pawnLength = 5;
 
@@ -10,26 +12,33 @@ document.write("<table>");
 
 for (i=0;i<=numberCell; i++)
 {
-	document.write("<tr>");
+	document.write("<tr id="+numbTr+">");
 
 	for (j=0;j<=numberCell; j++){
-		document.write("<td id="+numb+">");
-			document.write(numb);
+		document.write("<td id="+numbTd+">");
+			document.write(numbTr+"/"+numbTd);
 		document.write("</td>");
+		numbTd++;
+
 		numb++;
 	}
+
+
+	numbTd = 0;
+
+	numbTr++;
 
 	document.write("</tr>");
 }
 document.write("</table>");
 
-if (numberCell >15 ) {
-	ventier = 15;
+if (numberCell >14 ) {
+	ventier = 14;
 	alert("Number Cell max Limit 15"); 
 	location.reload();
 }
-else if(numberCell<8){
-	ventier = 8;
+else if(numberCell<7){
+	ventier = 7;
 	alert("Number Cell min Limit 8"); 
 	location.reload();
 }
