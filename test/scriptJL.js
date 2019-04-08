@@ -93,20 +93,18 @@ function generateShipDirection(n,ship){
 		model.ships[n][ship]["pos"][3] = "row";
 			model.ships[n][ship]["pos"][4] = 
 				model.ships[n][ship]["pos"][2]+1;
-
-		for (i = 0; i < model.ships[n][ship].length; i++) {
-		}
 	}
 	else if(random>0.5){
 		//col
 		model.ships[n][ship]["pos"][3] = "col";
 			model.ships[n][ship]["pos"][4] = 
 				model.ships[n][ship]["pos"][0]+1;
-				
-		for (i = 0; i < model.ships[n][ship].length; i++) {
+
+		for (i = 2; i < model.ships[n][ship].length; i++) {
 		}
 	}
 }
+
 
 generateShipDirection(0,"carrier");
 generateShipDirection(1,"cruiser");
